@@ -1,0 +1,150 @@
+mysql> create database studentdata;
+Query OK, 1 row affected (0.00 sec)
+
+mysql> use studentdata;
+Database changed
+mysql> create table studentdata(regno int(3),studentname varchar(15),gender varchar(1),dateofbirth DATE,mobilenumber int(10),city varchar(15));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc studentdata;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| regno        | int(3)      | YES  |     | NULL    |       |
+| studentname  | varchar(15) | YES  |     | NULL    |       |
+| gender       | varchar(1)  | YES  |     | NULL    |       |
+| dateofbirth  | date        | YES  |     | NULL    |       |
+| mobilenumber | int(10)     | YES  |     | NULL    |       |
+| city         | varchar(15) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.06 sec)
+
+mysql> alter table studentdata ADD address varchar(40);
+Query OK, 0 rows affected (0.06 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc studentdata;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| regno        | int(3)      | YES  |     | NULL    |       |
+| studentname  | varchar(15) | YES  |     | NULL    |       |
+| gender       | varchar(1)  | YES  |     | NULL    |       |
+| dateofbirth  | date        | YES  |     | NULL    |       |
+| mobilenumber | int(10)     | YES  |     | NULL    |       |
+| city         | varchar(15) | YES  |     | NULL    |       |
+| address      | varchar(40) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.06 sec)
+
+mysql> truncate table studentdata;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc studentdata;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| regno        | int(3)      | YES  |     | NULL    |       |
+| studentname  | varchar(15) | YES  |     | NULL    |       |
+| gender       | varchar(1)  | YES  |     | NULL    |       |
+| dateofbirth  | date        | YES  |     | NULL    |       |
+| mobilenumber | int(10)     | YES  |     | NULL    |       |
+| city         | varchar(15) | YES  |     | NULL    |       |
+| address      | varchar(40) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+7 rows in set (0.07 sec)
+
+mysql> drop column city;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'column city' at line 1
+mysql> ALTER TABLE studentdata
+    -> DROP COLUMN city;
+Query OK, 0 rows affected (0.08 sec)
+Records: 0  Duplicates: 0  Warnings: 0
+
+mysql> desc studentdata;
++--------------+-------------+------+-----+---------+-------+
+| Field        | Type        | Null | Key | Default | Extra |
++--------------+-------------+------+-----+---------+-------+
+| regno        | int(3)      | YES  |     | NULL    |       |
+| studentname  | varchar(15) | YES  |     | NULL    |       |
+| gender       | varchar(1)  | YES  |     | NULL    |       |
+| dateofbirth  | date        | YES  |     | NULL    |       |
+| mobilenumber | int(10)     | YES  |     | NULL    |       |
+| address      | varchar(40) | YES  |     | NULL    |       |
++--------------+-------------+------+-----+---------+-------+
+6 rows in set (0.05 sec)
+
+
+
+mysql> use faculty;
+Database changed
+mysql>  create table faculty(facultyidentifier varchar(4),facultyname varchar(15),gender int(1),dateofbirth DATE,dateofjoin DATE,mobilenumber int(10));
+Query OK, 0 rows affected (0.06 sec)
+
+mysql> desc faculty;
++-------------------+-------------+------+-----+---------+-------+
+| Field             | Type        | Null | Key | Default | Extra |
++-------------------+-------------+------+-----+---------+-------+
+| facultyidentifier | varchar(4)  | YES  |     | NULL    |       |
+| facultyname       | varchar(15) | YES  |     | NULL    |       |
+| gender            | int(1)      | YES  |     | NULL    |       |
+| dateofbirth       | date        | YES  |     | NULL    |       |
+| dateofjoin        | date        | YES  |     | NULL    |       |
+| mobilenumber      | int(10)     | YES  |     | NULL    |       |
++-------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.06 sec)
+
+mysql> alter table faculty;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc faculty
+    -> desc faculty;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'desc faculty' at line 2
+mysql> use faculty;
+Database changed
+mysql> alter table faculty;
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> desc faculty;
++-------------------+-------------+------+-----+---------+-------+
+| Field             | Type        | Null | Key | Default | Extra |
++-------------------+-------------+------+-----+---------+-------+
+| facultyidentifier | varchar(4)  | YES  |     | NULL    |       |
+| facultyname       | varchar(15) | YES  |     | NULL    |       |
+| gender            | int(1)      | YES  |     | NULL    |       |
+| dateofbirth       | date        | YES  |     | NULL    |       |
+| dateofjoin        | date        | YES  |     | NULL    |       |
+| mobilenumber      | int(10)     | YES  |     | NULL    |       |
++-------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.06 sec)
+
+mysql> use faculty;
+Database changed
+mysql> truncet table faculty;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'truncet table faculty' at line 1
+mysql> use faculty;
+Database changed
+mysql> truncate table faculty;
+Query OK, 0 rows affected (0.05 sec)
+
+mysql> desc faculty;
++-------------------+-------------+------+-----+---------+-------+
+| Field             | Type        | Null | Key | Default | Extra |
++-------------------+-------------+------+-----+---------+-------+
+| facultyidentifier | varchar(4)  | YES  |     | NULL    |       |
+| facultyname       | varchar(15) | YES  |     | NULL    |       |
+| gender            | int(1)      | YES  |     | NULL    |       |
+| dateofbirth       | date        | YES  |     | NULL    |       |
+| dateofjoin        | date        | YES  |     | NULL    |       |
+| mobilenumber      | int(10)     | YES  |     | NULL    |       |
++-------------------+-------------+------+-----+---------+-------+
+6 rows in set (0.06 sec)
+
+mysql> use faculty;
+Database changed
+mysql> drop table faculty;
+Query OK, 0 rows affected (0.04 sec)
+
+mysql> desc faculty;
+ERROR 1146 (42S02): Table 'faculty.faculty' doesn't exist
+mysql>
